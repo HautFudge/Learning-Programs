@@ -9,14 +9,14 @@ def mathmaker():
     ops = {"+": operator.add, "-": operator.sub, "*": operator.mul, "/": operator.truediv}
     operate = ops[operation]
     try:
-        no1 = int(no1)
-        no2 = int(no2)
+        no1 = float(no1)
+        no2 = float(no2)
     except:
         print('please enter real numbers')
         mathmaker()
     if operation is '+' or '-' or '*' or '/':
         value = operate(no1, no2)
-        print("%d %s %d equals %d" % (no1, operation, no2, value))
+        print("%d %s %d equals %.2f" % (no1, operation, no2, value))
     else:
         print('Enter one of the four basic operators, please. Or type "Q" if you would like to quit')
         mathmaker()
