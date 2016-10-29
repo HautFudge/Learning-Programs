@@ -1,0 +1,24 @@
+import operator
+
+def mathmaker():
+    print("Welcome to the mathmaker calculator!")
+    no1 = input("Please enter the first of two numbers. Any number of digits is fine. ")
+    no2 = input("Please enter the second number. ")
+    operation = input("now an operator. +, -, *, or / ")
+    value = 0
+    ops = {"+": operator.add, "-": operator.sub, "*": operator.mul, "/": operator.truediv}
+    operate = ops[operation]
+    try:
+        no1 = int(no1)
+        no2 = int(no2)
+    except:
+        print('please enter real numbers')
+        mathmaker()
+    if operation is '+' or '-' or '*' or '/':
+        value = operate(no1, no2)
+        print("%d %s %d equals %d" % (no1, operation, no2, value))
+    else:
+        print('Enter one of the four basic operators, please. Or type "Q" if you would like to quit')
+        mathmaker()
+
+mathmaker()
