@@ -1,0 +1,43 @@
+'''This is a very basic calculator that runs the four basic arithmetic functions.
+It was a study in error handling, and with so few functions, I could focus on making sure it doesn't break.'''
+
+import sys
+def calculator():
+    print('Welcome to my basic calculator!')
+#Allows user to quit program
+    gameplay = input('Enter Q to quit or any other key to continue ')
+    if gameplay == 'q' or gameplay == 'Q':
+        print('see ya! \n[exiting calculator]')
+        sys.exit()
+    else:
+#Takes inputs and checks that they are real numbers
+#If op1 and op2 are not numbers, reinitializes the program
+        op1 = input("gimme a number: ")
+        op2 = input("gimme one more number: ")
+        operator = input('what operation, brah? ')
+        try:
+            op1 = float(op1)
+            op2 = float(op2)
+        except:
+            print('Please enter real numbers')
+            calculator()
+#This checks if the operator input is a basic math operator.
+#If not, program prints error and reinitializes.'''
+        if operator == '+':
+            value = op1 + op2
+            print(op1, ' plus ', op2, ' equals ', value)
+        elif operator == '-':
+            value = op1 - op2
+            print(op1, ' minus ', op2, 'equals ', value)
+        elif operator == '*':
+            value = op1 * op2
+            print(op1, ' times ', op2, 'equals ', value)
+        elif operator == '/':
+            value = op1 / op2
+            print(op1, ' divided by ', op2, 'equals ', value)
+        else:
+            print("Error. Please enter one of the four basic operators: +, -, *, /")
+            calculator()
+
+
+calculator()
